@@ -1,0 +1,67 @@
+---
+// src/components/sections/Hero.astro
+---
+<section class="relative min-h-screen bg-hero-gradient overflow-hidden flex items-center pt-28 pb-0 lg:pt-20">
+
+    <video autoplay muted loop playsinline preload="auto" class="absolute opacity-[0.7] inset-0 w-full h-full object-cover">
+     <source src="/public/img/bgfondo.mp4" type="video/mp4">
+    </video>
+    <div class="relative max-w-7xl flex flex-col-reverse mx-auto px-6 lg:grid lg:grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
+
+        <!-- LEFT: Text -->
+        <div class="text-center lg:text-left order-2 lg:order-1">
+
+
+
+          <h1 class="reveal delay-1 text-4xl sm:text-5xl lg:text-6xl font-display font-extrabold text-white leading-[1.08] mb-6">
+            Más de 20 años
+            <span class="block text-gradient-celeste">al servicio de la Justicia.</span>
+          </h1>
+
+          <p class="reveal delay-2 text-lg text-white/75 max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed">
+            Juan Manuel Pettigiani es Fiscal en Mar del Plata, con una trayectoria dedicada
+            a la seguridad ciudadana, la mediación comunitaria y el acceso a la Justicia
+            para todos los vecinos.
+          </p>
+
+          <div class="reveal delay-3 flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4">
+            <a href="#trayectoria" class="inline-flex items-center justify-center gap-2 bg-[#2dd4ff] hover:bg-[#5ce0ff] text-[#0a2540] font-semibold px-8 py-4 rounded-full transition-all shadow-xl shadow-cyan-500/25 hover:-translate-y-0.5 w-full sm:w-auto">
+              Ver su trayectoria →
+            </a>
+            <a href="#sobre-el" class="inline-flex items-center justify-center gap-2 glass-dark text-white font-semibold px-8 py-4 rounded-full hover:bg-white/10 transition-all w-full sm:w-auto">
+              Conocer su historia
+            </a>
+          </div>
+
+        </div>
+
+        <!-- RIGHT -->
+        <div class="order-1 lg:order-2 relative flex items-end justify-center h-full overflow-hidden">
+
+
+
+    <img src="/img/JuanManuelPettigiani-R1-ID1.webp" alt="Juan Manuel Pettigiani" loading="eager" class="
+            relative
+            z-10
+            h-[520px]
+            sm:h-[620px]
+            lg:h-[700px]
+            w-auto
+            max-w-none
+            object-contain
+            self-end
+        "/>
+
+    <!-- Degradado SOLO en mobile -->
+    <div class="absolute bottom-0 left-0 right-0 h-32 lg:hidden
+               bg-gradient-to-b
+               from-transparent
+               via-black/20
+               to-black/30
+               z-20">
+    </div>
+
+</div>
+
+    </div>
+</section>

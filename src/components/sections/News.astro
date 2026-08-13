@@ -1,0 +1,54 @@
+---
+// src/components/sections/News.astro
+const news = [
+  {
+    img: '/img/noticia-1.svg',
+    date: '14 de marzo, 2026',
+    title: 'Capacitación sobre Derecho Penal Juvenil',
+    excerpt: 'El Fiscal participó como disertante en una jornada de formación destinada a estudiantes de abogacía de la UNMdP.',
+  },
+  {
+    img: '/img/noticia-2.svg',
+    date: '2 de marzo, 2026',
+    title: 'Ampliación del programa de mediación comunitaria',
+    excerpt: 'Se incorporaron nuevos barrios al programa de resolución pacífica de conflictos vecinales impulsado por la Fiscalía.',
+  },
+  {
+    img: '/img/noticia-3.svg',
+    date: '20 de febrero, 2026',
+    title: 'Jornada académica sobre acceso a la Justicia',
+    excerpt: 'Se realizó un encuentro abierto a la comunidad para explicar de forma clara cómo funciona el sistema judicial.',
+  },
+];
+---
+<section id="noticias" class="py-24 lg:py-32 bg-section-light">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div class="reveal text-center max-w-2xl mx-auto mb-16">
+      <span class="text-sm font-semibold text-[#14366b] uppercase tracking-widest">Actualidad</span>
+      <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0a2540] mt-3">
+        Últimas <span class="accent-underline">noticias</span>
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-7">
+      {news.map(({ img, date, title, excerpt }, i) => (
+        <article class={`reveal delay-${i + 1} card-elevated overflow-hidden group`}>
+          <div class="overflow-hidden">
+            <img src={img} alt={title} class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          </div>
+          <div class="p-6">
+            <span class="text-xs text-[#14366b] font-semibold uppercase tracking-wide">{date}</span>
+            <h3 class="font-display font-bold text-[#0a2540] text-lg mt-2 mb-3 leading-snug">{title}</h3>
+            <p class="text-[#4b5563] text-sm leading-relaxed mb-5">{excerpt}</p>
+            <a href="#" class="inline-flex items-center gap-1.5 text-sm font-semibold text-[#14366b] hover:text-[#2dd4ff] transition-colors group">
+              Leer más
+              <span class="group-hover:translate-x-1 transition-transform">→</span>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>

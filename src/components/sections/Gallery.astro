@@ -1,0 +1,57 @@
+---
+// src/components/sections/News.astro
+const quotes = [
+    {
+        quote: '“Las causas son lo más difícil de nuestra profesión.”',
+        text: 'Detrás de cada expediente hay una historia, una responsabilidad y el compromiso de buscar justicia.',
+    },
+    {
+        quote: '“La Justicia también se construye escuchando.”',
+        text: 'El diálogo y la comprensión son herramientas fundamentales para acercar las instituciones a la comunidad.',
+    },
+    {
+        quote: '“Nuestro trabajo tiene un impacto real en la sociedad.”',
+        text: 'Cada decisión y cada investigación forman parte de un compromiso permanente con la verdad y la justicia.',
+    },
+];
+---
+
+<section id="noticias" class="py-24 lg:py-32 bg-section-light">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div class="reveal text-center max-w-2xl mx-auto mb-16">
+      <span class="text-sm font-semibold text-[#14366b] uppercase tracking-widest">
+        Reflexiones
+      </span>
+
+      <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0a2540] mt-3">
+        Palabras que <span class="accent-underline">representan</span>
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-7">
+      {quotes.map(({ quote, text }, i) => (
+          <article
+              class={`reveal delay-${i + 1} group relative bg-white border border-[#dbe3ec] rounded-2xl p-8 lg:p-9 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1`}
+          >
+          <div class="absolute top-7 left-8 text-5xl font-serif text-[#2dd4ff] opacity-40 leading-none">
+            “
+          </div>
+
+          <div class="relative pt-7">
+            <h3 class="font-display font-bold text-[#0a2540] text-xl lg:text-2xl leading-snug mb-5">
+              {quote}
+            </h3>
+
+            <div class="w-10 h-1 bg-[#2dd4ff] rounded-full mb-5"></div>
+
+            <p class="text-[#4b5563] text-sm lg:text-base leading-relaxed">
+              {text}
+            </p>
+          </div>
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>

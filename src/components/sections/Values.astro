@@ -1,0 +1,36 @@
+---
+// src/components/sections/Values.astro
+const values = [
+  { icon: '⚖️', title: 'Independencia',        desc: 'Actuar siempre con criterio propio, sin presiones externas, priorizando la legalidad y la verdad de los hechos.' },
+  { icon: '🤝', title: 'Cercanía con el vecino', desc: 'Estar presente en los barrios, escuchar a la comunidad y entender sus problemas de primera mano.' },
+  { icon: '🔍', title: 'Rigor profesional',      desc: 'Cada causa se trabaja con seriedad, método y respeto absoluto por el debido proceso.' },
+  { icon: '💬', title: 'Mediación y diálogo',    desc: 'Promover la resolución pacífica de conflictos como complemento al trabajo judicial tradicional.' },
+];
+---
+<section id="valores" class="py-24 lg:py-32 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div class="reveal text-center max-w-2xl mx-auto mb-16">
+      <span class="text-sm font-semibold text-[#14366b] uppercase tracking-widest">Principios de trabajo</span>
+      <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0a2540] mt-3">
+        Valores que guían su <span class="accent-underline">labor</span>
+      </h2>
+      <p class="text-[#4b5563] mt-5 text-lg">
+        Ocho principios que sostienen su ejercicio profesional día a día.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {values.map(({ icon, title, desc }, i) => (
+        <div class={`reveal delay-${(i % 4) + 1} card-elevated p-7 group cursor-default`}>
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#e0f7ff] to-white flex items-center justify-center text-3xl mb-5 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
+            {icon}
+          </div>
+          <h3 class="font-display font-bold text-[#0a2540] text-lg mb-2.5">{title}</h3>
+          <p class="text-[#4b5563] text-sm leading-relaxed">{desc}</p>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

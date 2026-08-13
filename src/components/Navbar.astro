@@ -1,0 +1,326 @@
+---
+// src/components/Navbar.astro
+const links = [
+  { href: '#sobre-el',   label: 'Sobre Mi' },
+  { href: '#trayectoria',label: 'Trayectoria' },
+  { href: '#vision',     label: 'Visión' },
+  { href: '#noticias',   label: 'Noticias' },
+];
+---
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-2.5 group">
+      <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#2dd4ff] to-[#14366b] flex items-center justify-center text-white font-black text-lg shadow-lg">
+        <img src="/img/logo-pettigiani.webp">
+      </div>
+      <div class="leading-tight">
+        <div class="font-bold text-white text-sm tracking-tight">Pettigiani</div>
+        <div class="text-[10px] text-[#9fd8ff] uppercase tracking-widest font-medium">Fiscal</div>
+      </div>
+    </a>
+
+    <div class="hidden lg:flex items-center gap-8">
+      {links.map(({ href, label }) => (
+        <a href={href} class="nav-link text-sm font-medium text-white/80 hover:text-white transition-colors">
+          {label}
+        </a>
+      ))}
+    </div>
+
+    <div class="flex items-center gap-3">
+
+  <!-- Botón Contacto -->
+  <button
+      id="socialBtn"
+      type="button"
+      aria-label="Abrir redes sociales"
+      class="hidden cursor-pointer sm:inline-flex items-center gap-2 text-sm font-semibold bg-[#2dd4ff] hover:bg-[#5ce0ff] text-[#0a2540] px-5 py-2.5 rounded-full transition-all shadow-lg shadow-cyan-500/20 hover:-translate-y-0.5"
+  >
+    Contacto
+  </button>
+
+        <!-- Botón menú móvil -->
+  <button
+      id="menuBtn"
+      aria-label="Abrir menú"
+      class="lg:hidden p-2 text-white"
+  >
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+    </svg>
+  </button>
+
+</div>
+
+
+      <!-- MODAL REDES SOCIALES -->
+<div
+    id="socialModal"
+    class="fixed inset-0 z-[100] w-screen h-screen flex items-center justify-center overflow-y-auto px-5 py-6 opacity-0 invisible pointer-events-none transition-all duration-300"
+>
+  <!-- Fondo -->
+  <div
+      id="socialOverlay"
+      class="absolute inset-0 bg-[#061a2d]/75 backdrop-blur-md"
+  ></div>
+
+
+    <!-- Tarjeta -->
+  <div
+      id="socialCard"
+      class="relative w-full max-w-md bg-[#0a2540] border border-white/10 rounded-3xl shadow-2xl p-8 sm:p-10 text-center scale-95 translate-y-3 transition-all duration-300"
+  >
+
+    <!-- Botón cerrar -->
+    <button
+        id="closeSocial"
+        type="button"
+        aria-label="Cerrar"
+        class="absolute cursor-pointer top-5 right-5 w-9 h-9 rounded-full bg-white/5 hover:bg-white/10 text-white/60 hover:text-white flex items-center justify-center transition-all"
+    >
+      <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+      >
+        <path d="M18 6 6 18"/>
+        <path d="m6 6 12 12"/>
+      </svg>
+    </button>
+
+
+      <!-- Contenido -->
+
+    <div class="mb-8">
+
+      <div class="w-12 h-12 mx-auto mb-5 rounded-2xl bg-[#2dd4ff]/10 flex items-center justify-center">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#2dd4ff"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        >
+          <path d="M16 8a6 6 0 0 1 6 6v1a3 3 0 0 1-3 3h-1"/>
+          <path d="M8 8a6 6 0 0 0-6 6v1a3 3 0 0 0 3 3h1"/>
+          <path d="M12 2v20"/>
+          <path d="M8 12h8"/>
+        </svg>
+      </div>
+
+      <h2 class="font-display text-2xl sm:text-3xl font-bold text-white mb-3">
+        Seguime en mis redes
+      </h2>
+
+      <p class="text-white/60 text-sm sm:text-base leading-relaxed max-w-sm mx-auto">
+        Conocé más sobre mi trabajo, mis proyectos y las actividades que realizo.
+      </p>
+
+    </div>
+
+
+      <!-- Redes -->
+
+    <div class="flex items-center justify-center gap-4">
+
+      <!-- YouTube -->
+      <a
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="YouTube"
+          class="w-12 h-12 rounded-full bg-[#FF0000] text-white flex items-center justify-center shadow-lg shadow-red-500/20 hover:scale-110 hover:-translate-y-1 transition-all duration-300"
+      >
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+        >
+          <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.7V8.3l6.3 3.7-6.3 3.7Z"/>
+        </svg>
+      </a>
+
+
+        <!-- Instagram -->
+      <a
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+          class="w-12 h-12 rounded-full bg-gradient-to-tr from-[#F58529] via-[#DD2A7B] to-[#8134AF] text-white flex items-center justify-center shadow-lg shadow-pink-500/20 hover:scale-110 hover:-translate-y-1 transition-all duration-300"
+      >
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        >
+          <rect width="20" height="20" x="2" y="2" rx="5"/>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+          <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+        </svg>
+      </a>
+
+
+        <!-- X -->
+      <a
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="X"
+          class="w-12 h-12 rounded-full bg-black text-white border border-white/20 flex items-center justify-center shadow-lg shadow-black/30 hover:scale-110 hover:-translate-y-1 transition-all duration-300"
+      >
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+        >
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817-5.963 6.817H1.684l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/>
+        </svg>
+      </a>
+
+
+        <!-- TikTok -->
+      <a
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="TikTok"
+          class="w-12 h-12 rounded-full bg-black text-white border border-white/20 flex items-center justify-center shadow-lg shadow-black/30 hover:scale-110 hover:-translate-y-1 transition-all duration-300"
+      >
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+        >
+          <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.11V2h-3.45v13.67a2.89 2.89 0 1 1-2-2.76V9.36a6.33 6.33 0 1 0 5.45 6.27V8.52a8.16 8.16 0 0 0 4.77 1.52V6.69Z"/>
+        </svg>
+      </a>
+
+    </div>
+
+  </div>
+</div>
+
+
+<script>
+  const socialBtn = document.getElementById('socialBtn');
+  const socialModal = document.getElementById('socialModal');
+  const socialCard = document.getElementById('socialCard');
+  const closeSocial = document.getElementById('closeSocial');
+  const socialOverlay = document.getElementById('socialOverlay');
+
+  function openSocialModal() {
+      socialModal?.classList.remove(
+          'opacity-0',
+          'invisible',
+          'pointer-events-none'
+      );
+
+      socialModal?.classList.add(
+          'opacity-100'
+      );
+
+      setTimeout(() => {
+          socialCard?.classList.remove(
+              'scale-95',
+              'translate-y-3'
+          );
+
+          socialCard?.classList.add(
+              'scale-100',
+              'translate-y-0'
+          );
+      }, 10);
+
+      document.body.style.overflow = 'hidden';
+  }
+
+  function closeSocialModal() {
+      socialCard?.classList.remove(
+          'scale-100',
+          'translate-y-0'
+      );
+
+      socialCard?.classList.add(
+          'scale-95',
+          'translate-y-3'
+      );
+
+      setTimeout(() => {
+          socialModal?.classList.remove(
+              'opacity-100'
+          );
+
+          socialModal?.classList.add(
+              'opacity-0',
+              'invisible',
+              'pointer-events-none'
+          );
+      }, 200);
+
+      document.body.style.overflow = '';
+  }
+
+  socialBtn?.addEventListener('click', openSocialModal);
+  closeSocial?.addEventListener('click', closeSocialModal);
+  socialOverlay?.addEventListener('click', closeSocialModal);
+
+  document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+          closeSocialModal();
+      }
+  });
+</script>
+  </div>
+
+  <div id="mobileMenu" class="hidden lg:hidden glass-dark border-t border-white/10 px-6 py-5 flex flex-col gap-4">
+    {links.map(({ href, label }) => (
+      <a href={href} class="text-sm font-medium text-white/90 hover:text-white py-1">{label}</a>
+    ))}
+    <a href="#contacto" class="inline-flex items-center justify-center gap-2 text-sm font-semibold bg-[#2dd4ff] text-[#0a2540] px-5 py-3 rounded-full mt-2">
+      Contactar
+    </a>
+  </div>
+</nav>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  function onScroll() {
+    if (window.scrollY > 60) {
+      navbar?.classList.add('bg-[#0a2540]/95', 'backdrop-blur-md', 'shadow-lg');
+    } else {
+      navbar?.classList.remove('bg-[#0a2540]/95', 'backdrop-blur-md', 'shadow-lg');
+    }
+  }
+  window.addEventListener('scroll', onScroll);
+  onScroll();
+
+  document.getElementById('menuBtn')?.addEventListener('click', () => {
+    document.getElementById('mobileMenu')?.classList.toggle('hidden');
+  });
+  document.querySelectorAll('#mobileMenu a').forEach((a) => {
+    a.addEventListener('click', () => document.getElementById('mobileMenu')?.classList.add('hidden'));
+  });
+</script>
